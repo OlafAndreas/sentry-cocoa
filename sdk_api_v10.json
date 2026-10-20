@@ -78307,6 +78307,7 @@
         ],
         "declKind": "Class",
         "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
         "isOpen": true,
         "kind": "TypeDecl",
         "mangledName": "$s6Sentry11TransactionC",
