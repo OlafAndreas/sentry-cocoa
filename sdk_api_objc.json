@@ -96,6 +96,16 @@
   },
   {
     "kind": "EnumConstantDecl",
+    "name": "SentryObjCMetricKitHangReportingModeFlamegraphAttachment",
+    "parent": "SentryObjCMetricKitHangReportingMode"
+  },
+  {
+    "kind": "EnumConstantDecl",
+    "name": "SentryObjCMetricKitHangReportingModeLegacy",
+    "parent": "SentryObjCMetricKitHangReportingMode"
+  },
+  {
+    "kind": "EnumConstantDecl",
     "name": "SentryObjCProfileLifecycleManual",
     "parent": "SentryObjCProfileLifecycle"
   },
@@ -313,6 +323,10 @@
   {
     "kind": "EnumDecl",
     "name": "SentryObjCLogLevel"
+  },
+  {
+    "kind": "EnumDecl",
+    "name": "SentryObjCMetricKitHangReportingMode"
   },
   {
     "kind": "EnumDecl",
@@ -603,6 +617,12 @@
   {
     "kind": "ObjCInterfaceDecl",
     "name": "SentryObjCMetric",
+    "super": "NSObject",
+    "has_inner": true
+  },
+  {
+    "kind": "ObjCInterfaceDecl",
+    "name": "SentryObjCMetricKitOptions",
     "super": "NSObject",
     "has_inner": true
   },
@@ -1192,6 +1212,13 @@
   },
   {
     "kind": "ObjCMethodDecl",
+    "name": "captureError:attachAllThreads:scopeBlock:",
+    "parent": "SentryObjCSDK",
+    "returnType": "SentryObjCId * _Nonnull",
+    "instance": false
+  },
+  {
+    "kind": "ObjCMethodDecl",
     "name": "captureError:withHint:",
     "parent": "SentryObjCSDK",
     "returnType": "SentryObjCId * _Nonnull",
@@ -1276,6 +1303,13 @@
   },
   {
     "kind": "ObjCMethodDecl",
+    "name": "captureEvent:attachAllThreads:scopeBlock:",
+    "parent": "SentryObjCSDK",
+    "returnType": "SentryObjCId * _Nonnull",
+    "instance": false
+  },
+  {
+    "kind": "ObjCMethodDecl",
     "name": "captureEvent:withHint:",
     "parent": "SentryObjCSDK",
     "returnType": "SentryObjCId * _Nonnull",
@@ -1354,6 +1388,13 @@
   {
     "kind": "ObjCMethodDecl",
     "name": "captureException:attachAllThreads:",
+    "parent": "SentryObjCSDK",
+    "returnType": "SentryObjCId * _Nonnull",
+    "instance": false
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "captureException:attachAllThreads:scopeBlock:",
     "parent": "SentryObjCSDK",
     "returnType": "SentryObjCId * _Nonnull",
     "instance": false
@@ -1459,6 +1500,13 @@
   {
     "kind": "ObjCMethodDecl",
     "name": "captureMessage:attachAllThreads:",
+    "parent": "SentryObjCSDK",
+    "returnType": "SentryObjCId * _Nonnull",
+    "instance": false
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "captureMessage:attachAllThreads:scopeBlock:",
     "parent": "SentryObjCSDK",
     "returnType": "SentryObjCId * _Nonnull",
     "instance": false
@@ -2802,6 +2850,13 @@
   },
   {
     "kind": "ObjCMethodDecl",
+    "name": "hangReportingMode",
+    "parent": "SentryObjCMetricKitOptions",
+    "returnType": "SentryObjCMetricKitHangReportingMode",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
     "name": "hasIntegration:",
     "parent": "SentryObjCHub",
     "returnType": "BOOL",
@@ -3266,6 +3321,13 @@
     "kind": "ObjCMethodDecl",
     "name": "init",
     "parent": "SentryObjCMetric",
+    "returnType": "instancetype _Nonnull",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "init",
+    "parent": "SentryObjCMetricKitOptions",
     "returnType": "instancetype _Nonnull",
     "instance": true
   },
@@ -4314,6 +4376,13 @@
   },
   {
     "kind": "ObjCMethodDecl",
+    "name": "metrickit",
+    "parent": "SentryObjCExperimentalOptions",
+    "returnType": "SentryObjCMetricKitOptions * _Nonnull",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
     "name": "metrics",
     "parent": "SentryObjCSDK",
     "returnType": "SentryObjCMetricsApi * _Nonnull",
@@ -4715,6 +4784,13 @@
     "kind": "ObjCMethodDecl",
     "name": "new",
     "parent": "SentryObjCMetric",
+    "returnType": "instancetype _Nonnull",
+    "instance": false
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "new",
+    "parent": "SentryObjCMetricKitOptions",
     "returnType": "instancetype _Nonnull",
     "instance": false
   },
@@ -5546,7 +5622,21 @@
   },
   {
     "kind": "ObjCMethodDecl",
+    "name": "serializeDebugMeta:",
+    "parent": "SentryObjCInternalSerializerApi",
+    "returnType": "NSDictionary<NSString *,id> * _Nonnull",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
     "name": "serializeEvent:",
+    "parent": "SentryObjCInternalSerializerApi",
+    "returnType": "NSDictionary<NSString *,id> * _Nonnull",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "serializeScope:",
     "parent": "SentryObjCInternalSerializerApi",
     "returnType": "NSDictionary<NSString *,id> * _Nonnull",
     "instance": true
@@ -6542,6 +6632,13 @@
     "kind": "ObjCMethodDecl",
     "name": "setHandled:",
     "parent": "SentryObjCMechanism",
+    "returnType": "void",
+    "instance": true
+  },
+  {
+    "kind": "ObjCMethodDecl",
+    "name": "setHangReportingMode:",
+    "parent": "SentryObjCMetricKitOptions",
     "returnType": "void",
     "instance": true
   },
@@ -9972,6 +10069,12 @@
   },
   {
     "kind": "ObjCPropertyDecl",
+    "name": "hangReportingMode",
+    "parent": "SentryObjCMetricKitOptions",
+    "type": "SentryObjCMetricKitHangReportingMode"
+  },
+  {
+    "kind": "ObjCPropertyDecl",
     "name": "header",
     "parent": "SentryObjCEnvelope",
     "type": "SentryObjCEnvelopeHeader * _Nonnull"
@@ -10407,6 +10510,12 @@
     "name": "method",
     "parent": "SentryObjCRequest",
     "type": "NSString * _Nullable"
+  },
+  {
+    "kind": "ObjCPropertyDecl",
+    "name": "metrickit",
+    "parent": "SentryObjCExperimentalOptions",
+    "type": "SentryObjCMetricKitOptions * _Nonnull"
   },
   {
     "kind": "ObjCPropertyDecl",
@@ -11740,6 +11849,11 @@
     "kind": "TypedefDecl",
     "name": "SentryObjCLogLevel",
     "type": "enum SentryObjCLogLevel"
+  },
+  {
+    "kind": "TypedefDecl",
+    "name": "SentryObjCMetricKitHangReportingMode",
+    "type": "enum SentryObjCMetricKitHangReportingMode"
   },
   {
     "kind": "TypedefDecl",
